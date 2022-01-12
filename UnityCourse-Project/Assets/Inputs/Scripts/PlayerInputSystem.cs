@@ -16,14 +16,11 @@ public class PlayerInputSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(
-            Input.GetAxis("Horizontal"),
-            0, 
-            Input.GetAxis("Vertical"));
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (Input.GetAxis("Fire1") != 0)
         {
-
+            // Do something
         }
 
     }
