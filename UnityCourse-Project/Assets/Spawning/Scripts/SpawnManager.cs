@@ -20,22 +20,22 @@ public class SpawnManager : MonoBehaviour
         {
             Transform spawnPoint = spawnPoints[i];
             Mob newMob = Instantiate<Mob>(mobToSpawn, spawnPoint.position, spawnPoint.rotation);
-            //Mobs.Add(newMob);
+            Mobs.Add(newMob);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-/*        for (int i = Mobs.Count - 1; i >= 0 ; i--)
+        for (int i = Mobs.Count - 1; i >= 0; i--)
         {
             Mob myMob = Mobs[i];
-            if(myMob.Health <= 0)
+            if (myMob.Health <= 0)
             {
                 Mobs.RemoveAt(i);
                 myMob.Kill();
             }
-        }*/
+        }
 
     }
 
