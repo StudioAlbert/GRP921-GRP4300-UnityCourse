@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageDealer : MonoBehaviour
+public class MobDamageDealer : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,19 +18,16 @@ public class DamageDealer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hitInfo;
-            if(Physics.Raycast(ray, out hitInfo))
+            if (Physics.Raycast(ray, out hitInfo))
             {
-                ITakeDamage damageableTarget = hitInfo.collider.GetComponent<ITakeDamage>();
-                if(damageableTarget != null)
+                Mob damageableTarget = hitInfo.collider.GetComponent<Mob>();
+                if (damageableTarget != null)
                 {
                     damageableTarget.TakeDamage(1);
                 }
             }
 
         }
-   
-
-
 
     }
 }
