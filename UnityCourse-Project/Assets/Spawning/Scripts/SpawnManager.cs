@@ -11,16 +11,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private List<Transform> spawnPoints;
 
-    private List<Mob> Mobs;
+    private List<Mob> Mobs = new List<Mob>();
     
     // Start is called before the first frame update
     void Start()
     {
-        Mobs = new List<Mob>();
-
         for (int i = 0; i < spawnPoints.Count; i++)
         {
-            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count - 1)];
+            Transform spawnPoint = spawnPoints[i];
             Mob newMob = Instantiate<Mob>(mobToSpawn, spawnPoint.position, spawnPoint.rotation);
             //Mobs.Add(newMob);
         }

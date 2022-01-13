@@ -13,17 +13,12 @@ public class Mob : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
         Debug.Log("Mob health" + health);
     }
 
     public void Kill()
-    {
-        //Destroy(gameObject);
-    }
-
-    public void OnMouseDown()
     {
         Destroy(gameObject);
     }
