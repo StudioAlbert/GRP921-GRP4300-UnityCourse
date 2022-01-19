@@ -1,0 +1,34 @@
+{
+    "name": "CoroutineActions",
+    "maps": [
+        {
+            "name": "Actions",
+            "id": "4eb511f6-0d24-4f48-838d-fcce0ad4b9d5",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "cfa2bc9d-9422-4618-b861-1ad9aab59e58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9976b085-c097-4e5f-a47c-cb44c67208ec",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
