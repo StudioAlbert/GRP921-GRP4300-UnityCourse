@@ -29,7 +29,7 @@ public class RaycastSpotter : MonoBehaviour
         // Define a ray
         Ray ray = new Ray(transform.position, transform.forward);
         // Draw it in the editor
-        Debug.DrawRay(ray.origin, ray.direction * 25.0f, Color.yellow);
+        Debug.DrawRay(ray.origin, ray.direction * 25.0f, Color.red);
 
         if (raycastMultiple)
         {
