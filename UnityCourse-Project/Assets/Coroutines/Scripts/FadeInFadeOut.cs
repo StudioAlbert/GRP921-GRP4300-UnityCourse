@@ -21,6 +21,8 @@ public class FadeInFadeOut : MonoBehaviour
     IEnumerator fadeRoutine;
     Color fadeColor;
 
+    Color resultColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class FadeInFadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.GetComponent<Renderer>().material.color = result;
+        this.GetComponent<Renderer>().material.color = resultColor;
     }
 
     void OnMouseUp()
@@ -63,7 +65,7 @@ public class FadeInFadeOut : MonoBehaviour
         do
         {
 
-            GetComponent<Renderer>().material.color = Color.Lerp(fadeFrom, fadeTo, rate);
+            resultColor = Color.Lerp(fadeFrom, fadeTo, rate);
             rate += stepValue;
             Debug.Log("Rate : " + rate);
 
