@@ -20,7 +20,8 @@ public class PlayerAnimation : MonoBehaviour
     private Coroutine coroutineFadeIn;
     private Coroutine coroutineFadeOut;
 
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
 
     // Start is called before the first frame update

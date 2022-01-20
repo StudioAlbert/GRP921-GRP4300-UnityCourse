@@ -17,8 +17,8 @@ public class WeaponChanger : MonoBehaviour
 {
     private Weapon weapon = Weapon.NONE;
 
-    public InputControllerByInputSystem inputController;
-    public PlayerAnimation playerAnimation;
+    public InputControllerByInputSystem InputController;
+    public PlayerAnimation PlayerAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +36,12 @@ public class WeaponChanger : MonoBehaviour
     {
         //Subscribing to delegate
         //eg. of Multicast Delegate
-        inputController.weaponChanged += changeWeapon;
+        InputController.weaponChanged += changeWeapon;
     }
     private void OnDisable()
     {
         //UnSubscribing to Delegate
-        inputController.weaponChanged -= changeWeapon;
+        InputController.weaponChanged -= changeWeapon;
     }
 
     public void changeWeapon()
@@ -58,20 +58,20 @@ public class WeaponChanger : MonoBehaviour
         switch (weapon)
         {
             case Weapon.NONE:
-                playerAnimation.RealeasePosture();
+                PlayerAnimation.RealeasePosture();
                 break;
             case Weapon.HANDS:
-                playerAnimation.Do2HandsPosture();
+                PlayerAnimation.Do2HandsPosture();
                 break;
             case Weapon.RIFLE:
-                playerAnimation.DoRiflePosture();
+                PlayerAnimation.DoRiflePosture();
                 break;
             case Weapon.FIGHTING:
-                playerAnimation.DoFightingPosture();
+                PlayerAnimation.DoFightingPosture();
                 break;
             case Weapon.WEAPON_ENUM_LIMIT:
             default:
-                playerAnimation.RealeasePosture();
+                PlayerAnimation.RealeasePosture();
                 weapon = Weapon.NONE;
                 break;
         }
