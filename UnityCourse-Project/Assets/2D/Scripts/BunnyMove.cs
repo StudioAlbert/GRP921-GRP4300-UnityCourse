@@ -45,6 +45,7 @@ namespace Platformer2D
                 }
                 doJump = false;
             }
+
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)
