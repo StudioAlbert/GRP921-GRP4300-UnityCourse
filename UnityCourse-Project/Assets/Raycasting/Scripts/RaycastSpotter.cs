@@ -30,15 +30,36 @@ public class RaycastSpotter : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         // Draw it in the editor
         Debug.DrawRay(ray.origin, ray.direction * 25.0f, Color.red);
+        RaycastByLayer(ray);
 
-        if (raycastMultiple)
+/*        if (raycastMultiple)
         {
             RaycastAll(ray);
         }
         else
         {
-             RaycastOne(ray);
+            RaycastOne(ray);
+        }*/
+    }
+
+    private static void RaycastByLayer(Ray ray)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Camera.main.farClipPlane, LayerMask.GetMask("Spottables")))
+        {
+
+            RaycastSpottable spotted = hit.collider.gameObject.GetComponent<RaycastSpottable>();
+            if (spotted != null)
+            {
+                spotted.SpotObject();
+            }
+            else
+            {
+                Debug.Log("This object is not spottable");
+            }
+
         }
+
     }
 
     private static void RaycastOne(Ray ray)
@@ -62,8 +83,8 @@ public class RaycastSpotter : MonoBehaviour
     }
     private static void RaycastAll(Ray ray)
     {
-        List<RaycastHit> hits;
-        hits = Physics.RaycastAll(ray).ToList();
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(ray);
 
         foreach(var hit in hits)
         {
