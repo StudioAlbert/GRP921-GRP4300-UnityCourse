@@ -29,18 +29,12 @@ public class CarMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (rb.velocity.magnitude < speedMax)
-        {
-            //transform.Rotate(Vector3.up, turnInput * turnForce * Time.deltaTime);
-        }
-    }
-
-
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (GameManager.GameOver)
+            return;
 
         if (rb.velocity.magnitude < speedMax)
         {
