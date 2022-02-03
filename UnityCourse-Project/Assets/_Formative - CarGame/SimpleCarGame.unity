@@ -1933,10 +1933,6 @@ PrefabInstance:
       propertyPath: camOffest
       value: 
       objectReference: {fileID: 2105905625}
-    - target: {fileID: 410931061, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 163943201256030102, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
       propertyPath: m_Name
       value: Car
@@ -1985,21 +1981,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4584116058615022952, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
-      propertyPath: m_Drag
-      value: 2.1
+    - target: {fileID: 7547987646510859905, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
+      propertyPath: m_Radius
+      value: 0.23815265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547987646510859905, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
+      propertyPath: m_Center.y
+      value: 0.2029843
       objectReference: {fileID: 0}
     - target: {fileID: 8070029142708670810, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
-      propertyPath: speedMax
-      value: 28.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070029142708670810, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
-      propertyPath: brakeForce
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070029142708670810, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
-      propertyPath: accelerateForce
-      value: 91.13
+      propertyPath: gravityForce
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90105d9565a8e3b44b247aef18488ddd, type: 3}
