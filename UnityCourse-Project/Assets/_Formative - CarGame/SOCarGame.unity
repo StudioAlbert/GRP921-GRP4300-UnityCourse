@@ -3652,7 +3652,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1413669247}
   - component: {fileID: 1413669249}
-  - component: {fileID: 1413669248}
   m_Layer: 0
   m_Name: _Managers
   m_TagString: Untagged
@@ -3675,29 +3674,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1413669248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413669246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5742a2ee9b0ae44782fe295a7903966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChronoTextSec: {fileID: 886232911}
-  ChronoTextMsec: {fileID: 471617795}
-  BonusTimeText: {fileID: 1753661986}
-  LapValueText: {fileID: 971725580}
-  SpeedValueText: {fileID: 102094141}
-  RaceIsOverPanel: {fileID: 1186692154}
-  PreracePanel: {fileID: 1346800896}
-  RacePanel: {fileID: 190599359}
-  ChronoAnimator: {fileID: 1881210879}
-  BonusTimeAnimator: {fileID: 1753661988}
-  carSpeed: {fileID: 11400000, guid: 7459581a2c54f0c4593a3c4d395e78bd, type: 2}
 --- !u!114 &1413669249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3712,7 +3688,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonusTime: 15
   startTime: 45
-  uiManager: {fileID: 1413669248}
+  uiManager: {fileID: 1881210880}
+  TimeElapsed: {fileID: 11400000, guid: b30a3315580055e49b86e13d45151718, type: 2}
+  CurrentLap: {fileID: 11400000, guid: 5c519b16ba86a554b95c56f1227748dd, type: 2}
 --- !u!1 &1431092438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4762,6 +4740,7 @@ GameObject:
   - component: {fileID: 1881210876}
   - component: {fileID: 1881210875}
   - component: {fileID: 1881210879}
+  - component: {fileID: 1881210880}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4871,6 +4850,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1881210880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881210874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5742a2ee9b0ae44782fe295a7903966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChronoTextSec: {fileID: 886232911}
+  ChronoTextMsec: {fileID: 471617795}
+  BonusTimeText: {fileID: 1753661986}
+  LapValueText: {fileID: 971725580}
+  SpeedValueText: {fileID: 102094141}
+  RaceIsOverPanel: {fileID: 1186692154}
+  PreracePanel: {fileID: 1346800896}
+  RacePanel: {fileID: 190599359}
+  ChronoAnimator: {fileID: 1881210879}
+  BonusTimeAnimator: {fileID: 1753661988}
+  CarSpeed: {fileID: 11400000, guid: 7459581a2c54f0c4593a3c4d395e78bd, type: 2}
+  TimeElapsed: {fileID: 11400000, guid: b30a3315580055e49b86e13d45151718, type: 2}
+  CurrentLap: {fileID: 11400000, guid: 5c519b16ba86a554b95c56f1227748dd, type: 2}
 --- !u!1 &1920262585
 GameObject:
   m_ObjectHideFlags: 0
@@ -5176,6 +5180,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4806653399935881760, guid: 0f2b4d7b13d83d748a45f5a0b38f59f0, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5193864319108571993, guid: 0f2b4d7b13d83d748a45f5a0b38f59f0, type: 3}
       propertyPath: m_RootOrder
       value: 5
