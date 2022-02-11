@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b6e0c54a0f7852c4f95da243e1d738c3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sportage
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e19a3a241c46d744abe51ed34d424127, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
