@@ -24,7 +24,7 @@ public class MouseSpotter : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
         // Draw it in the editor
-        Debug.DrawRay(ray.origin, ray.direction * 25.0f, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 1000.0f, Color.green);
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))

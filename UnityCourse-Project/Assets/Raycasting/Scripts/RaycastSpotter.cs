@@ -24,15 +24,23 @@ public class RaycastSpotter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(transform.up, Time.deltaTime * rotationInput * rotationAmplitude);
+        transform.Rotate(transform.up, Time.deltaTime * Input.GetAxis("Horizontal") * rotationAmplitude);
         
         // Define a ray
         Ray ray = new Ray(transform.position, transform.forward);
         // Draw it in the editor
         Debug.DrawRay(ray.origin, ray.direction * 25.0f, Color.red);
-        RaycastByLayer(ray);
-
-/*        if (raycastMultiple)
+        //RaycastByLayer(ray);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            RaycastSpottable spotted = hit.collider.gameObject.GetComponent<RaycastSpottable>();
+            if (spotted != null)
+            {
+                spotted.SpotObject();
+            }
+        }
+       /*if (raycastMultiple)
         {
             RaycastAll(ray);
         }
