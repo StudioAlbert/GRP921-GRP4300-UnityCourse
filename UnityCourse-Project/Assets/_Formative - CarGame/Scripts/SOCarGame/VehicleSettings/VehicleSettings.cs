@@ -20,5 +20,10 @@ namespace SOCarGame
         public float drag;
         public float angularDrag;
 
+        public float GetSpeedMax()
+        {
+            return Random.Range(5f, 10f);
+        }
+
     }
 }

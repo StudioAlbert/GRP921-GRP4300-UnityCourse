@@ -31,9 +31,10 @@ namespace Events
             _itemsCounter.text = (_collectibles.Count - _collectedItems.Count).ToString();
         }
 
-        private void Collect(Collectible itemCollectd)
+        private void Collect(Collectible itemCollected)
         {
-            _collectedItems.Remove(itemCollectd);
+            //itemCollected.OnPickup -= Collect;
+            _collectedItems.Remove(itemCollected);
 
             if (_collectedItems.Count <= 0)
             {

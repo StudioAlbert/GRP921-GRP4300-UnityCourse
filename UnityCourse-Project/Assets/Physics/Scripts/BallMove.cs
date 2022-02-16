@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class BallMove : MonoBehaviour
 {
     [SerializeField]
-    private float forceAmplification = 5;
     private float forceMagnitude;
   
     private Rigidbody rb;

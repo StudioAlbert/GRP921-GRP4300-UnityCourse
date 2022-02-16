@@ -54,7 +54,7 @@ namespace SOCarGame
                 grounded = false;
             }
 
-            if (rb.velocity.magnitude < settings.speedMax)
+            if (rb.velocity.magnitude < settings.GetSpeedMax())
             {
                 doMove = true;
 

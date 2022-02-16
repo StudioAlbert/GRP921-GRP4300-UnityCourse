@@ -19,8 +19,6 @@ namespace SimpleCarGame
         [SerializeField] GameObject PreracePanel;
         [SerializeField] GameObject RacePanel;
 
-
-
         // ----------------------------------------------------------------------------------------------
         [SerializeField] Animator ChronoAnimator;
         [SerializeField] Animator BonusTimeAnimator;
