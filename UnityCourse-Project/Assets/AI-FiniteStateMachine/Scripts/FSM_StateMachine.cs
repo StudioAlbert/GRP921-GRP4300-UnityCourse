@@ -39,7 +39,7 @@ namespace FSM
             {
                 _currentState?.OnExit();
                 _currentState = newState;
-                
+
                 if(_allTransitions.TryGetValue(newState.GetType(), out _currentTypeTransitions) == false)
                     _currentTypeTransitions = _emptyTransitions;
                     

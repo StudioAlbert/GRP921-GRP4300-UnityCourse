@@ -9,7 +9,6 @@
             private FSM_Tank _tank;
 
             private readonly WaypointsManager _waypointsManager;
-            // private readonly NavMeshAgent _navMeshAgent;
             private readonly Animator _tankAnimator;
             
             private const float MAX_DISTANCE = 1f;
@@ -19,7 +18,6 @@
             {
                 _tank = tank;
                 _waypointsManager = waypointsManager;
-                // _navMeshAgent = navMeshAgent;
                 _tankAnimator = tankAnimator;
             }
             
@@ -44,9 +42,7 @@
 
                 if (Vector3.Distance(_tank.transform.position, _tank.Destination) <= MAX_DISTANCE)
                     _tank.Destination = _waypointsManager.GetNextPatrolDestination().transform.position;
-
-                // _tank.CheckTargetting();
-
+                
             }
 
          }

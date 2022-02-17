@@ -12,19 +12,14 @@ public class WaypointFollower : MonoBehaviour
     private int _currentWP = 0;
     void Update()
     {
-        if (Vector3.Distance(transform.position, wpManager.WayPoints[_currentWP].transform.position) < _wpDistance)
-        {
-            _currentWP++;
+        Vector3 targetPosition = wpManager.GetCurrentDestination().transform.position;
 
-            if (_currentWP >= wpManager.WayPoints.Count)
-            {
-                _currentWP = 0;
-            }
-        }
-        
-        //transform.LookAt(wpManager.WayPoints[_currentWP].transform.position);
-        Quaternion lookAt =
-            Quaternion.LookRotation(wpManager.WayPoints[_currentWP].transform.position - transform.position);
+        if (Vector3.Distance(transform.position, targetPosition) < _wpDistance)
+            targetPosition = wpManager.GetNextPatrolDestination().transform.position;
+                
+        //transform.LookAt(targetPosition);
+
+        Quaternion lookAt = Quaternion.LookRotation(targetPosition - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookAt, _turnSpeed * Time.deltaTime);
         
         transform.Translate(Vector3.forward * Time.deltaTime * _moveSpeed);

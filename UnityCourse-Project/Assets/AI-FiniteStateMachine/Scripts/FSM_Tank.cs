@@ -57,7 +57,7 @@ namespace FSM
             _stateMachine.AddTransition(_patrol, _chase, () => Target != null);
             _stateMachine.AddTransition(_chase, _patrol, () => Target == null);
             
-            _stateMachine.AddTransition(_chase, _shoot, () => Vector3.Distance(transform.position, Target.transform.position) <= SHOOTING_DISTANCE);
+            _stateMachine.AddTransition(_chase, _shoot,() => Vector3.Distance(transform.position, Target.transform.position) <= SHOOTING_DISTANCE);
             _stateMachine.AddTransition(_shoot, _chase, () =>
             {
                 if (Target != null)
@@ -69,6 +69,7 @@ namespace FSM
                     return true;
                 }
             });
+            
             _stateMachine.AddTransition(_shoot, _patrol, () => Target == null);
             
             _stateMachine.SetState(_patrol);
