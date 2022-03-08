@@ -8,32 +8,25 @@ namespace BehaviourTrees
 {
     public class BT_Node
     {
-        public enum NodeStatus {SUCCESS, RUNNING, FAILURE}
+        public enum NodeStatus {CONTINUE, RUNNING, STOP}
 
-        public NodeStatus Status => _status;
+        public NodeStatus Status { get => _status; set => _status = value;}
         private NodeStatus _status;
         
-        public int Level
-        {
-            get => _level;
-            set => _level = value;
-        }
-
-        protected int _level;
+        public int Level { get => _level; set => _level = value;}
+        private int _level;
         
-        public List<BT_Node> Children => _children;
+        //public List<BT_Node> Children => _children;
         protected List<BT_Node> _children = new List<BT_Node>();
-       
-        public BT_Node CurrentChild => _currentChild;
-        private BT_Node _currentChild;
+        // TODO : Make Current child an iterator (safer, cleaner)
+        protected int _currentChildIdx = 0;
+
+        public BT_Node CurrentChild => _children[_currentChildIdx];
         
         public string Name => _name;
         protected String _name;
 
-        protected BT_Node()
-        {
-            
-        }
+        protected BT_Node(){ }
         public BT_Node(string name)
         {
             _name = name;
@@ -46,16 +39,19 @@ namespace BehaviourTrees
         }
         public override string ToString()
         {
-            String tree = new String('-', _level) + _name + "\n";
+            String treeString = new String('-', 5 * _level) + _name + "\n";
 
-            foreach (var child in Children)
+            foreach (var child in _children)
             {
-                //tree += child._name 
-                tree += child.ToString();
+                treeString += child.ToString();
             }
 
-            return tree;
+            return treeString;
 
+        }
+        public virtual NodeStatus Process()
+        {
+            return _children[_currentChildIdx].Process();
         }
 
     }

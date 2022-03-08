@@ -14,15 +14,16 @@ namespace BehaviourTrees
         }
         public void PrintTree()
         {
-            String treePrintout ="";
-            
-            // foreach (var child in Children)
-            // {
-            //     treePrintout += child.ToString();
-            // }
-            
             Debug.Log(this.ToString());
         }
+
+        // public override NodeStatus Process()
+        // {
+        //     if(_children.Count>=0)
+        //         _currentChild = _children[0];
+        //     
+        //     return _currentChild.Process();
+        // }
     }
 
 }
