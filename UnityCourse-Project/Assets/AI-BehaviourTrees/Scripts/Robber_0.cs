@@ -75,7 +75,7 @@ public class Robber_0 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_treeStatus != BT_Node.NodeStatus.STOP)
+        if (_treeStatus != BT_Node.NodeStatus.FAILURE)
             _treeStatus = StealingTree.Process();
         else
         {
@@ -88,7 +88,7 @@ public class Robber_0 : MonoBehaviour
     {
         BT_Node.NodeStatus s = GoToDestination(_vanTransform.position);
 
-        if (s == BT_Node.NodeStatus.CONTINUE)
+        if (s == BT_Node.NodeStatus.SUCCESS)
         {
             _currentMoney += _lastStolenItem.Prize;
         }
@@ -117,23 +117,23 @@ public class Robber_0 : MonoBehaviour
     private BT_Node.NodeStatus HasMoney()
     {
         if (_currentMoney > _moneyAchievment)
-            return BT_Node.NodeStatus.STOP;
+            return BT_Node.NodeStatus.FAILURE;
         else
-            return BT_Node.NodeStatus.CONTINUE;
+            return BT_Node.NodeStatus.SUCCESS;
     }
 
     private BT_Node.NodeStatus GoToADoor(OpenableDoor openableDoor)
     {
         BT_Node.NodeStatus s = GoToDestination(openableDoor.transform.position);
 
-        if (s == BT_Node.NodeStatus.CONTINUE)
+        if (s == BT_Node.NodeStatus.SUCCESS)
         {
             if (!openableDoor.IsLocked)
             {
                 openableDoor.Open();
-                return BT_Node.NodeStatus.CONTINUE;
+                return BT_Node.NodeStatus.SUCCESS;
             }
-            return BT_Node.NodeStatus.STOP;
+            return BT_Node.NodeStatus.FAILURE;
         }
         else
         {
@@ -145,7 +145,7 @@ public class Robber_0 : MonoBehaviour
     {
         BT_Node.NodeStatus s = GoToDestination(stealableItem.transform.position);
 
-        if (s == BT_Node.NodeStatus.CONTINUE)
+        if (s == BT_Node.NodeStatus.SUCCESS)
         {
             stealableItem.StealItem();
             _lastStolenItem = stealableItem;
@@ -162,7 +162,7 @@ public class Robber_0 : MonoBehaviour
         {
             // The node is at destination, so stop
             Debug.Log("Node arrived at destination");
-            StealingTree.CurrentChild.Status =  BT_Node.NodeStatus.CONTINUE;
+            StealingTree.CurrentChild.Status =  BT_Node.NodeStatus.SUCCESS;
         }
         else
         {

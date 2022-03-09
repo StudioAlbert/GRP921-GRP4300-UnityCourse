@@ -8,7 +8,7 @@ namespace BehaviourTrees
         // Delegate that will be process when the leaf is processe
         public delegate NodeStatus Tick();
         private Tick _processMethod;
-
+        
         // Leaf class specific constructors
         // protected BT_Leaf() : base() {}
         public BT_Leaf(String name, Tick processMethod) : base(name)
@@ -25,7 +25,7 @@ namespace BehaviourTrees
                  return _processMethod();
             }
 
-            return NodeStatus.STOP;
+            return NodeStatus.FAILURE;
 
         }
     }

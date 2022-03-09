@@ -12,14 +12,14 @@ namespace BehaviourTrees
         {
             NodeStatus childStatus = _children[_currentChildIdx].Process();
             
-            if (childStatus == NodeStatus.CONTINUE)
+            if (childStatus == NodeStatus.SUCCESS)
             {
                 _currentChildIdx++;
                 
                 if (_currentChildIdx >= _children.Count)
                 {
                     _currentChildIdx = 0;
-                    childStatus = NodeStatus.CONTINUE;
+                    childStatus = NodeStatus.SUCCESS;
                     // End of the sequence
                 }
                 else

@@ -8,7 +8,7 @@ namespace BehaviourTrees
 {
     public class BT_Node
     {
-        public enum NodeStatus {CONTINUE, RUNNING, STOP}
+        public enum NodeStatus {SUCCESS, RUNNING, FAILURE}
 
         public NodeStatus Status { get => _status; set => _status = value;}
         private NodeStatus _status;
