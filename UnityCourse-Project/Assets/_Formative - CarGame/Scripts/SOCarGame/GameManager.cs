@@ -22,8 +22,8 @@ namespace SOCarGame
         // Start is called before the first frame update
         void Start()
         {
-            TimeElapsed.Value = 0;
-            CurrentLap.Value = 0;
+            // TimeElapsed.Value = 0;
+            // CurrentLap.Value = 0;
 
             GameOver = false;
 

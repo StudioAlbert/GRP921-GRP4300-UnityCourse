@@ -37,7 +37,8 @@ public class AutoMove : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitUntil(() => nextMove == true);
+            yield return new WaitForSeconds(1f);
+            //yield return new WaitUntil(() => nextMove == true);
             nextMove = false;
 
             // Turn around ----------------------------------------------------------------
@@ -48,7 +49,8 @@ public class AutoMove : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
 
-            yield return new WaitUntil(() => nextMove == true);
+            yield return new WaitForSeconds(1f);
+            //yield return new WaitUntil(() => nextMove == true);
             nextMove = false;
 
         } while (true);

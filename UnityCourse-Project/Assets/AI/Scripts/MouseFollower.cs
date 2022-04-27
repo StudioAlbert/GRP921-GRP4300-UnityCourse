@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class MouseFollower : MonoBehaviour
 {
-
-    private Camera camera;
+    [SerializeField] private GameObject targetPosition;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _wpDistance = 3f;
+    [SerializeField] private float _turnSpeed = 0;
     
+    private Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +35,21 @@ public class MouseFollower : MonoBehaviour
             {
                 if(hit.collider.CompareTag("Ground"))
                 {
-                    transform.position = hit.point;
+                    targetPosition.transform.position = hit.point;
                 } 
             }
         }
+
+        if (Vector3.Distance(transform.position, targetPosition.transform.position) > _wpDistance)
+        {
+            Quaternion lookAt = Quaternion.LookRotation(targetPosition.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookAt, _turnSpeed * Time.deltaTime);
+        
+            transform.Translate(Vector3.forward * Time.deltaTime * _moveSpeed);
+
+        }
+
+
 
     }
 }
