@@ -33,7 +33,7 @@ public class PCGDungeon_GeneratorGameOfLife : MonoBehaviour
         
         SetMaps();
 
-        _alivePositions = Initiate();
+        Initiate();
         
         // for (int iterations = 0; iterations < _maxIterations; iterations++)
         do
@@ -46,13 +46,13 @@ public class PCGDungeon_GeneratorGameOfLife : MonoBehaviour
         
         _cavePositions = Invert(_fullMap, _alivePositions);
 
-        List<HashSet<Vector2Int>> floodFills = CheckFloodFills();
-        foreach (var floodFill in floodFills.OrderBy(ff => ff.Count))
-        {
-            if(floodFill != floodFills.OrderBy(ff => ff.Count).Last())
-                _alivePositions.UnionWith(floodFill);
-            
-        }
+         List<HashSet<Vector2Int>> floodFills = CheckFloodFills();
+         foreach (var floodFill in floodFills.OrderBy(ff => ff.Count))
+         {
+             if(floodFill != floodFills.OrderBy(ff => ff.Count).Last())
+                 _alivePositions.UnionWith(floodFill);
+             
+         }
         
         return _alivePositions;
 
@@ -141,6 +141,7 @@ public class PCGDungeon_GeneratorGameOfLife : MonoBehaviour
     {
         _alivePositions = GameOfLifeIteration(_fullMap, _alivePositions);
         return _alivePositions;
+        
     } 
     
     private HashSet<Vector2Int> GameOfLifeIteration(BoundsInt originalMap, HashSet<Vector2Int> alivePositions)
@@ -185,9 +186,10 @@ public class PCGDungeon_GeneratorGameOfLife : MonoBehaviour
 
     public HashSet<Vector2Int> Initiate()
     {
-
-        HashSet<Vector2Int> positions = new HashSet<Vector2Int>();
-
+        
+        SetMaps();
+        _alivePositions.Clear();
+        
         for(int x = _fullMap.xMin; x <= _fullMap.xMax; x++)
         {
             for(int y = _fullMap.xMin; y <= _fullMap.xMax; y++)
@@ -197,18 +199,19 @@ public class PCGDungeon_GeneratorGameOfLife : MonoBehaviour
                 {
                     // if in orginal map, add a position randomly
                     if(Random.value <= _initialFillRatio)
-                        positions.Add(new Vector2Int(x, y));
+                        _alivePositions.Add(new Vector2Int(x, y));
 
                 }
                 else
                 {
                     // If not , add it anyway
-                    positions.Add(new Vector2Int(x, y));
+                    _alivePositions.Add(new Vector2Int(x, y));
+                    
                 }
             }
         }
         
-        return positions;
+        return _alivePositions;
 
     }
 

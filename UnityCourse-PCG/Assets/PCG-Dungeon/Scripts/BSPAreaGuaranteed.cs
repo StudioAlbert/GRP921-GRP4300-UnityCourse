@@ -60,12 +60,11 @@ namespace PCGDungeon
                 }
                 else
                 {
-                    BoundsInt room1;
-                    BoundsInt room2;
+                    // BoundsInt room1 = new BoundsInt();
+                    // BoundsInt room2 = new BoundsInt();
 
                     BoundsSplitter.SplitBounds(room,
-                        Random.Range(Mathf.Max(Mathf.Epsilon, minRatio), Mathf.Min(maxRatio, 1f)), direction, out room1,
-                        out room2);
+                        Random.Range(Mathf.Max(Mathf.Epsilon, minRatio), Mathf.Min(maxRatio, 1f)), direction, out BoundsInt room1, out BoundsInt room2);
                     roomsQueue.Enqueue(room1);
                     roomsQueue.Enqueue(room2);
 

@@ -32,14 +32,18 @@ namespace PCGDungeon
             {
                 mapPainter.BSPAreaGenerate();
             }
+            if (GUILayout.Button("Game Of Life Reset"))
+            {
+                mapPainter.GameOfLifeReset();
+            }
             if (GUILayout.Button("Game Of Life Generate"))
             {
                 mapPainter.GameOfLifeGenerate();
             }
-            // if (GUILayout.Button("Game Of Life Iteration"))
-            // {
-            //     mapPainter.GameOfLifeIterate();
-            // }
+            if (GUILayout.Button("Game Of Life Iteration"))
+            {
+                mapPainter.GameOfLifeIterate();
+            }
             if (GUILayout.Button("Paint Walls Debug"))
             {
                 mapPainter.PaintWalls();
