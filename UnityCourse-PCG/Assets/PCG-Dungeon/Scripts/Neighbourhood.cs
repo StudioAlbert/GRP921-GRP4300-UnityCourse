@@ -24,7 +24,7 @@ public static class Neighbourhood
     
     public static List<Vector2Int> Diagonals = new List<Vector2Int>
     {
-         UpRight, // Full Up
+        UpRight, // Full Up
         DownRight, // Full Right
         DownLeft, // Full down
         UpLeft
