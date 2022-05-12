@@ -15,7 +15,7 @@ MonoBehaviour:
   size: {x: 60, y: 35}
   bordersRatio: 0.095
   startPosition: {x: 0, y: 0}
-  initialFillRatio: 0.626
-  maxIterations: 200
+  initialFillRatio: 0.66
+  maxIterations: 25
   stayAliveValues: 0400000005000000060000000700000008000000
   comeAliveValues: 0400000005000000060000000700000008000000
