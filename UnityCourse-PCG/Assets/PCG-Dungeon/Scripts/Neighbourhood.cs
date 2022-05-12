@@ -13,7 +13,7 @@ public static class Neighbourhood
     public static Vector2Int UpLeft = new Vector2Int(-1, 1);
     public static Vector2Int DownLeft = new Vector2Int(-1, -1);
 
-    public static List<Vector2Int> VonNeumann = new List<Vector2Int>
+    public static List<Vector2Int> Cardinals = new List<Vector2Int>
     {
         Up, // Full Up
         Right, // Full Right
@@ -30,7 +30,7 @@ public static class Neighbourhood
         UpLeft
     };
 
-    public static List<Vector2Int> Moore = new List<Vector2Int>
+    public static List<Vector2Int> Full = new List<Vector2Int>
     {
         Up, // Full Up
         UpRight, // Full Up
@@ -44,11 +44,11 @@ public static class Neighbourhood
     
     public static Vector2Int GetRandomVonNeumannNeighbour()
     {
-        return VonNeumann[Random.Range(0, VonNeumann.Count)];
+        return Cardinals[Random.Range(0, Cardinals.Count)];
     }
     public static Vector2Int GetRandomMooreNeighbour()
     {
-        return Moore[Random.Range(0, Moore.Count)];
+        return Full[Random.Range(0, Full.Count)];
     }
     
     public static string GetHash(Vector2Int position, HashSet<Vector2Int> supposedNeighBours, 
@@ -67,7 +67,7 @@ public static class Neighbourhood
         return neighbourhoodHash;
     }
     
-    public static int getCount(Vector2Int position, HashSet<Vector2Int> supposedNeighbours, 
+    public static int GetCount(Vector2Int position, HashSet<Vector2Int> supposedNeighbours, 
         List<Vector2Int> neighbourhoodDirections)
     {
         int neighboursCount = 0;
