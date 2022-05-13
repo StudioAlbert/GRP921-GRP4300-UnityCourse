@@ -13,7 +13,7 @@ namespace PCGDungeon
 
         [SerializeField] private Vector2Int _startPosition;
         [SerializeField] private int _walkLength = 10;
-        [SerializeField] private int _iterations = 10;
+        //[SerializeField] private int _iterations = 10;
         [SerializeField] private int _minAreaGuaranteed = 40;
         [SerializeField] private bool _restartAtRandomPositions = false;
         [SerializeField] private int _corridorsCount = 6;
@@ -34,10 +34,10 @@ namespace PCGDungeon
             
             // Create wayends first
             List<Vector2Int> wayends = new List<Vector2Int>();
-            wayends = roomsPositions.FindAll(r => Neighbourhood.getCount(r, floors, Neighbourhood.VonNeumann) <= 1);
+            wayends = roomsPositions.FindAll(r => Neighbourhood.GetCount(r, floors, Neighbourhood.Cardinals) <= 1);
 
             foreach (var roomsPosition in roomsPositions)
-                Debug.Log("Room : " + roomsPosition + "Count nieghbourhood : " + Neighbourhood.getCount(roomsPosition, floors, Neighbourhood.VonNeumann));
+                Debug.Log("Room : " + roomsPosition + "Count nieghbourhood : " + Neighbourhood.GetCount(roomsPosition, floors, Neighbourhood.Cardinals));
 
             foreach (var wayend in wayends)
                 Debug.Log("Wayend : " + wayend);

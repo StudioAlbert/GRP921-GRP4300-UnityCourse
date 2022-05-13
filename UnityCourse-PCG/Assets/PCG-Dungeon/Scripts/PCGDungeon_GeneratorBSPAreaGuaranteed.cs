@@ -72,7 +72,19 @@ namespace PCGDungeon
             while (roomCenters.Count > 0)
             {
                 List<Vector2Int> centersSort = roomCenters.OrderBy(c => Vector2Int.Distance(c, currentRoomCenter)).ToList();
-                closestCenter = centersSort[0];    
+                closestCenter = centersSort[0]; 
+                
+                // float minDist = Mathf.Infinity;
+                //
+                // foreach (var rc in roomCenters)
+                // {
+                //     float myDistance = Vector2.Distance(rc, currentRoomCenter);
+                //     if (myDistance < minDist)
+                //     {
+                //         closestCenter = rc;
+                //         minDist = myDistance;
+                //     }
+                // }
                 
                 HashSet<Vector2Int> oneRoomConnections = OneRoomConnection(currentRoomCenter, closestCenter);
                 
