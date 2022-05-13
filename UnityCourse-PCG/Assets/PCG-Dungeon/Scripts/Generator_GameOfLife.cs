@@ -24,10 +24,13 @@ public class Generator_GameOfLife : MonoBehaviour
     public SO_GameOfLife_Generator_Settings Settings => _settings;
 
     private HashSet<Vector2Int> _alivePositions = new HashSet<Vector2Int>();
+    private List<Vector2Int> _insidePositions = new List<Vector2Int>();
     private HashSet<Vector2Int> _cavePositions = new HashSet<Vector2Int>();
     private BoundsInt _originalMap = new BoundsInt();
     private BoundsInt _fullMap = new BoundsInt();
     private List<List<Vector2Int>> _floodFills = new List<List<Vector2Int>>();
+
+    public List<Vector2Int> InsidePositions => _insidePositions;
 
     public HashSet<Vector2Int> GetCave()
     {
@@ -76,6 +79,7 @@ public class Generator_GameOfLife : MonoBehaviour
         
         Debug.Log("GAME OF LIFE : Clean isolated positions");
         CleanIsolatedPositions(_alivePositions, new List<int> {5, 6, 7, 8}, Neighbourhood.Full);
+        _insidePositions = _alivePositions.ToList();
         
         ExpandTiles(_alivePositions, Neighbourhood.Cardinals);
         ExpandTiles(_alivePositions, Neighbourhood.Cardinals);

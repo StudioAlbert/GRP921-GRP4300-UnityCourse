@@ -63,8 +63,8 @@ public class DrisjkaMapWithPCG : MonoBehaviour
         _PCGMap = floorPositions.ToList();
         MapPainter.MapPaint(_PCGMap, _pcgTileMap, _ruledTile);
 
-        _startAStar = _PCGMap.OrderBy(m => Random.value).ElementAt(0);
-        _endAStar = _PCGMap.Where(m => Vector2Int.Distance(_startAStar,m) > 20).OrderBy(m => Random.value).FirstOrDefault();
+        _startAStar = _gameOfLifeGenerator.InsidePositions.OrderBy(m => Random.value).ElementAt(0);
+        _endAStar = _gameOfLifeGenerator.InsidePositions.Where(m => Vector2Int.Distance(_startAStar,m) > 20).OrderBy(m => Random.value).FirstOrDefault();
         MapPainter.CellPaint(_startAStar, _aStarPathMap, _goalsTile);
         MapPainter.CellPaint(_endAStar, _aStarPathMap, _goalsTile);
 
