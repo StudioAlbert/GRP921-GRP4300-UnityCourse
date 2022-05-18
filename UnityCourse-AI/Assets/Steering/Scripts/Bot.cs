@@ -5,55 +5,60 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class Bot : MonoBehaviour
+namespace SteeringBehaviourClassic
 {
-
-    private NavMeshAgent _navMeshAgent;
-    private SteeringBehaviour _steeringBehaviour;
-
-    private void Start()
+    public class Bot : MonoBehaviour
     {
-       // DisableSteeringBehaviors();
-    }
 
-    private void DisableSteeringBehaviors()
-    {
-        foreach (var steeringBehavior in GetComponents<SteeringBehaviour>())
+        private NavMeshAgent _navMeshAgent;
+        private SteeringBehaviour _steeringBehaviour;
+
+        private void Start()
         {
-            steeringBehavior.enabled = false;
+            // DisableSteeringBehaviors();
         }
+
+        private void DisableSteeringBehaviors()
+        {
+            foreach (var steeringBehavior in GetComponents<SteeringBehaviour>())
+            {
+                steeringBehavior.enabled = false;
+            }
+        }
+
+        private void EnableSteeringBehaviour<T>() where T : SteeringBehaviour
+        {
+            if (TryGetComponent<T>(out T behaviour))
+            {
+                _steeringBehaviour = behaviour;
+                _steeringBehaviour.enabled = true;
+            }
+        }
+
+        // private void Update()
+        // {
+        //     if (_steeringBehaviour != null)
+        //         _steeringBehaviour.UpdateSteering();
+        // }
+
+        public void OnSeek(InputAction.CallbackContext ctxKey)
+        {
+            if (ctxKey.ReadValueAsButton())
+            {
+                DisableSteeringBehaviors();
+                EnableSteeringBehaviour<SB_Seek>();
+            }
+        }
+
+        public void OnFlee(InputAction.CallbackContext ctxKey)
+        {
+            if (ctxKey.ReadValueAsButton())
+            {
+                DisableSteeringBehaviors();
+                EnableSteeringBehaviour<SB_Flee>();
+            }
+        }
+
     }
 
-    private void EnableSteeringBehaviour<T>() where T : SteeringBehaviour
-    {
-        if (TryGetComponent<T>(out T behaviour))
-        {
-            _steeringBehaviour = behaviour;
-            _steeringBehaviour.enabled = true;
-        }
-    }
-    
-    // private void Update()
-    // {
-    //     if (_steeringBehaviour != null)
-    //         _steeringBehaviour.UpdateSteering();
-    // }
-
-    public void OnSeek(InputAction.CallbackContext ctxKey)
-    {
-        if (ctxKey.ReadValueAsButton())
-        {
-            DisableSteeringBehaviors();
-            EnableSteeringBehaviour<SB_Seek>();
-        }
-    }
-    public void OnFlee(InputAction.CallbackContext ctxKey)
-    {
-        if (ctxKey.ReadValueAsButton())
-        {
-            DisableSteeringBehaviors();
-            EnableSteeringBehaviour<SB_Flee>();
-        }
-    }
-    
 }

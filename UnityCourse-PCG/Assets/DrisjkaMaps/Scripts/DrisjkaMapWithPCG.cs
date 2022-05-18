@@ -33,6 +33,7 @@ public class DrisjkaMapWithPCG : MonoBehaviour
     [SerializeField] private TileBase _currentNodeTile;
 
     List<Vector2Int> _PCGMap = new List<Vector2Int>();
+    List<Vector2Int> _InsidePositionsMap = new List<Vector2Int>();
     private HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
     
     private void Start()
@@ -63,8 +64,11 @@ public class DrisjkaMapWithPCG : MonoBehaviour
         _PCGMap = floorPositions.ToList();
         MapPainter.MapPaint(_PCGMap, _pcgTileMap, _ruledTile);
 
-        _startAStar = _gameOfLifeGenerator.InsidePositions.OrderBy(m => Random.value).ElementAt(0);
-        _endAStar = _gameOfLifeGenerator.InsidePositions.Where(m => Vector2Int.Distance(_startAStar,m) > 20).OrderBy(m => Random.value).FirstOrDefault();
+        _InsidePositionsMap = _gameOfLifeGenerator.InsidePositions;
+        
+        _startAStar = _InsidePositionsMap.OrderBy(m => Random.value).ElementAt(0);
+        _endAStar = _InsidePositionsMap.Where(m => Vector2Int.Distance(_startAStar,m) > 20).OrderBy(m => Random.value).FirstOrDefault();
+        
         MapPainter.CellPaint(_startAStar, _aStarPathMap, _goalsTile);
         MapPainter.CellPaint(_endAStar, _aStarPathMap, _goalsTile);
 
@@ -131,7 +135,7 @@ public class DrisjkaMapWithPCG : MonoBehaviour
 
     public void DoAStar()
     {
-        _aStarPathFinder.GetPath(_PCGMap, _startAStar, _endAStar);
+        _aStarPathFinder.GetPath(_InsidePositionsMap, _startAStar, _endAStar);
 
         _aStarPathMap.ClearAllTiles();
         foreach (var node in _aStarPathFinder.Open)

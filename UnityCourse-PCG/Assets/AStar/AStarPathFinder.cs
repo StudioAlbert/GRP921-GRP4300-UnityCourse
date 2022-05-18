@@ -72,6 +72,8 @@ public class AStarPathFinder : MonoBehaviour
 
         }
         
+        
+        
         // Get the path
         AStarNode rollbacknode = new AStarNode(_currentNode);
         while (rollbacknode.Position != _start)

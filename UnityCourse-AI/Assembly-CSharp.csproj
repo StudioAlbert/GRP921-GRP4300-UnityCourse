@@ -42,14 +42,22 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Steering\Scripts\SB_Flee.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SB_Wander.cs" />
      <Compile Include="Assets\Steering\Scripts\SB_Pursue.cs" />
      <Compile Include="Assets\Steering\Scripts\Target.cs" />
+     <Compile Include="Assets\Steering\Scripts\SB_Evade.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SteeringBehaviour.cs" />
      <Compile Include="Assets\Steering\Scripts\SteeringBehaviour.cs" />
      <Compile Include="Assets\Steering\Scripts\Drive.cs" />
-     <Compile Include="Assets\Steering\Scripts\Bot.cs" />
-     <Compile Include="Assets\Steering\Scripts\SB_Seek.cs" />
-     <Compile Include="Assets\Steering\Scripts\SB_Evade.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SB_Pursue.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SB_Evade.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SB_Seek.cs" />
      <Compile Include="Assets\Steering\Scripts\SB_Wander.cs" />
+     <Compile Include="Assets\Steering\Scripts\Bot.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\SB_Flee.cs" />
+     <Compile Include="Assets\SteeringRatio\Scripts\Bot.cs" />
+     <Compile Include="Assets\Steering\Scripts\SB_Seek.cs" />
+     <Compile Include="Assets\BasicMovement.cs" />
      <None Include="Assets\Commons\Materials\WorldCoordDiffuse.shader" />
      <Reference Include="UnityEngine">
      <HintPath>D:\0_Installs\Unity\2021.3.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
